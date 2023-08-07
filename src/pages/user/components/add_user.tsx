@@ -38,7 +38,7 @@ const CreateUserForm: React.FC<CreateUserFormProps> = ({open, onCreate, onCancel
 
                 <FormItem
                     label="用户名"
-                    name="real_name"
+                    name="user_name"
                     rules={[{required: true, message: '请输入用户名!'}]}
                 >
                     <Input/>
@@ -62,7 +62,6 @@ const CreateUserForm: React.FC<CreateUserFormProps> = ({open, onCreate, onCancel
                 <FormItem
                     label="备注"
                     name="remark"
-                    rules={[{required: true, message: '请输入备注!'}]}
                 >
                     <TextArea rows={2}/>
                 </FormItem>
