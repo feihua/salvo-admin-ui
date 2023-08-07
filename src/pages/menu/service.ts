@@ -17,6 +17,9 @@ export const menuList = (req: MenuListParam): Promise<IResponse> => {
  * @return {Promise}
  */
 export const addMenu = (menu: MenuVo): Promise<IResponse> => {
+    if (!menu.parent_id) {
+        menu.parent_id = 0
+    }
     return axiosInstance.post('api/menu_save', menu).then(res => res.data);
 };
 
@@ -34,8 +37,8 @@ export const updateMenu = (menu: MenuVo): Promise<IResponse> => {
  * @params {ids} number[]
  * @return {Promise}
  */
-export const removeMenu = (ids: Number[]): Promise<IResponse> => {
-    return axiosInstance.post('api/menu_delete', {ids: ids}).then(res => res.data);
+export const removeMenu = (id: number): Promise<IResponse> => {
+    return axiosInstance.post('api/menu_delete', {id: id}).then(res => res.data);
 };
 
 /**

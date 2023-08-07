@@ -121,31 +121,15 @@ const Menu: React.FC = () => {
         Modal.confirm({
             content: `确定删除${menu.menu_name}吗?`,
             async onOk() {
-                await handleRemove([menu.id]);
+                if (handleResp(await removeMenu(menu.id))) {
+                    let res = await menuList({})
+                    res.code === 0 ? setMenuDataTree(res) : message.error(res.msg);
+                }
             },
             onCancel() {
                 console.log('Cancel');
             }
         })
-    };
-
-    //批量删除
-    const handleRemove = async (ids: number[]) => {
-        if (handleResp(await removeMenu(ids))) {
-            let res = await menuList({})
-            res.code === 0 ? setMenuDataTree(res) : message.error(res.msg);
-        }
-
-    };
-
-    const handleSearchOk = async (menu: MenuVo) => {
-        let res = await menuList({...menu,})
-        res.code === 0 ? setMenuDataTree(res) : message.error(res.msg);
-    };
-
-    const handleResetOk = async () => {
-        let res = await menuList({})
-        res.code === 0 ? setMenuDataTree(res) : message.error(res.msg);
     };
 
     const setMenuDataTree = (res: IResponse) => {
@@ -186,19 +170,6 @@ const Menu: React.FC = () => {
             <CreateMenuForm onCancel={handleAddCancel} onCreate={handleAddOk} open={isShowAddModal} menuListData={menuListData}></CreateMenuForm>
             <UpdateMenuForm onCancel={handleEditCancel} onCreate={handleEditOk} open={isShowEditModal} menuVo={currentMenu}></UpdateMenuForm>
 
-            {selectedRowKeys.length > 0 &&
-                <div>
-                    已选择 {selectedRowKeys.length} 项
-                    <Button style={{float: "right"}} danger icon={<DeleteOutlined/>} type={'primary'}
-                            onClick={async () => {
-                                await handleRemove(selectedRowKeys as number[]);
-                                setSelectedRowKeys([]);
-                            }}
-                    >
-                        批量删除
-                    </Button>
-                </div>
-            }
 
         </div>
     );

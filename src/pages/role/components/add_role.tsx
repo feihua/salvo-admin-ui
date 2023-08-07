@@ -54,7 +54,6 @@ const CreateUserForm: React.FC<CreateUserFormProps> = ({open, onCreate, onCancel
                 <FormItem
                     label="备注"
                     name="remark"
-                    rules={[{required: true, message: '请输入备注!'}]}
                 >
                     <TextArea rows={2}/>
                 </FormItem>
