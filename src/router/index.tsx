@@ -9,6 +9,10 @@ import Pie from "../pages/charts/pie";
 import Log from "../pages/log/index";
 import Center from "../pages/account/center";
 import Setting from "../pages/account/settings";
+import Banner from "../pages/banner";
+import Types from "../pages/types";
+import Member from "../pages/member";
+import Title from "../pages/title";
 
 const routes = [
     {
@@ -50,6 +54,22 @@ const routes = [
     {
         path: "/setting",
         element: <Setting/>
+    },
+    {
+        path: "/banner",
+        element: <Banner/>
+    },
+    {
+        path: "/types",
+        element: <Types/>
+    },
+    {
+        path: "/member",
+        element: <Member/>
+    },
+    {
+        path: "/title",
+        element: <Title/>
     },
     {
         path: "/",
