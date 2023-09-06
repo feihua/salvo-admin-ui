@@ -1,5 +1,5 @@
 import {axiosInstance, IResponse} from "../../api/ajax";
-import {UserVo, UserListParam} from "./data";
+import {UserListParam, UserVo} from "./data";
 import {message} from "antd";
 
 /**
@@ -8,6 +8,12 @@ import {message} from "antd";
  * @return {Promise}
  */
 export const userList = (req: UserListParam): Promise<IResponse> => {
+    if (req.mobile) {
+        req.mobile = req.mobile.trim()
+    }
+    if (req.status_id) {
+        req.status_id = Number(req.status_id)
+    }
     return axiosInstance.post('api/user_list', req).then(res => res.data);
 };
 

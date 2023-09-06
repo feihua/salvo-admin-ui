@@ -1,5 +1,5 @@
 import {axiosInstance, IResponse} from "../../api/ajax";
-import {RoleVo, RoleListParam} from "./data";
+import {RoleListParam, RoleVo} from "./data";
 import {message} from "antd";
 
 /**
@@ -8,6 +8,12 @@ import {message} from "antd";
  * @return {Promise}
  */
 export const roleList = (req: RoleListParam): Promise<IResponse> => {
+    if (req.role_name) {
+        req.role_name = req.role_name.trim()
+    }
+    if (req.status_id) {
+        req.status_id = Number(req.status_id)
+    }
     return axiosInstance.post('api/role_list', req).then(res => res.data);
 };
 
