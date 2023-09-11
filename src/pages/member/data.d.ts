@@ -3,6 +3,7 @@ export interface MemberListParam {
     pageSize?: number;
     phone?: string;
     name?: string;
+    level?: string;
 }
 
 export interface MemberVo {

@@ -27,18 +27,26 @@ const AdvancedSearchForm: React.FC<CreateMemberFormProps> = ({search, reSet}) =>
         return (
             <>
                 <FormItem
-                    label={'角色名称'}
-                    name="role_name"
+                    label={'手机号'}
+                    name="phone"
                 >
-                    <Input placeholder="角色名称"/>
+                    <Input placeholder="手机号"/>
                 </FormItem>
                 <FormItem
-                    label={'状态'}
-                    name="status_id"
+                    label={'会员名称'}
+                    name="name"
+                >
+                    <Input placeholder="会员名称"/>
+                </FormItem>
+                <FormItem
+                    label={'会员等级'}
+                    name="level"
                 >
                     <Select style={{width: 200}}>
-                        <Option value="1">启用</Option>
-                        <Option value="0">禁用</Option>
+                        <Option value="0">普通会员</Option>
+                        <Option value="1">黄金会员</Option>
+                        <Option value="2">白金会员</Option>
+                        <Option value="3">钻石会员</Option>
                     </Select>
                 </FormItem>
                 <FormItem>

@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
-import {Form, Input, InputNumber, Modal, Radio} from 'antd';
+import {Form, Input, Modal, Select} from 'antd';
 import {MemberVo} from "../data";
-import TextArea from "antd/es/input/TextArea";
+
+const {Option} = Select;
 
 interface UpdateMemberFormProps {
     open: boolean;
@@ -42,33 +43,37 @@ const UpdateMemberForm: React.FC<UpdateMemberFormProps> = ({open, onCreate, onCa
                     <Input/>
                 </FormItem>
                 <FormItem
-                    label="角色名称"
-                    name="member_name"
-                    rules={[{required: true, message: '请输入角色名称!'}]}
+                    label={'会员手机'}
+                    name="phone"
+                    rules={[{required: true, message: '请输入手机号!'}]}
                 >
-                    <Input/>
-                </FormItem>
-
-                <FormItem
-                    label="排序"
-                    name="sort"
-                    rules={[{required: true, message: '请输入排序!'}]}>
-                    <InputNumber defaultValue={1}/>
+                    <Input placeholder="手机号"/>
                 </FormItem>
                 <FormItem
-                    label="状态"
-                    name="status_id"
-                    rules={[{required: true, message: '请输入状态!'}]}>
-                    <Radio.Group defaultValue={1}>
-                        <Radio value={1}>启用</Radio>
-                        <Radio value={0}>禁用</Radio>
-                    </Radio.Group>
-                </FormItem>
-                <FormItem
-                    label="备注"
-                    name="remark"
+                    label={'会员名称'}
+                    name="name"
+                    rules={[{required: true, message: '请输入会员名称!'}]}
                 >
-                    <TextArea rows={2}/>
+                    <Input placeholder="会员名称"/>
+                </FormItem>
+                <FormItem
+                    label={'会员密码'}
+                    name="password"
+                    rules={[{required: true, message: '请输入会员密码!'}]}
+                >
+                    <Input placeholder="会员密码"/>
+                </FormItem>
+                <FormItem
+                    label={'会员等级'}
+                    name="level"
+                    rules={[{required: true, message: '请输入会员等级!'}]}
+                >
+                    <Select style={{width: 234}}>
+                        <Option value="0">普通会员</Option>
+                        <Option value="1">黄金会员</Option>
+                        <Option value="2">白金会员</Option>
+                        <Option value="3">钻石会员</Option>
+                    </Select>
                 </FormItem>
             </>
         )
