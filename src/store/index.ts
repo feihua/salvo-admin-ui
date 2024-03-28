@@ -7,7 +7,9 @@ const useStore = create((set) => ({
     // inc: () => set((state: { count: number; }) => ({count: state.count + 1})),
 
     userName: "koobe",//默认的用户名
+    avatar: "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png",//默认的用户名
     setUserName: (name: string) => set({userName: name}),
+    setAvatar: (avatar: string) => set({avatar: avatar}),
 }));
 
 export default useStore

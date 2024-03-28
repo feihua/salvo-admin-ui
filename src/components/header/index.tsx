@@ -31,7 +31,7 @@ const items: MenuProps['items'] = [
 
 const MyHeader: React.FC = () => {
     let navigate = useNavigate();
-    const {userName} = useStore()as any;
+    const {userName, avatar} = useStore()as any;
 
     const onClick: MenuProps['onClick'] = ({key}) => {
         if (key === "1") {
@@ -46,7 +46,7 @@ const MyHeader: React.FC = () => {
 
     return (
         <Space style={{float: "right", marginRight: 30}}>
-            <Avatar src={'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png'}
+            <Avatar src={avatar}
                     alt="avatar"/>
             <Dropdown menu={{items, onClick}} placement="bottom" arrow>
                 <a onClick={(e) => e.preventDefault()}>

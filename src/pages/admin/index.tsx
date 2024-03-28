@@ -71,7 +71,7 @@ function getMyItem(label: React.ReactNode, key: React.Key, icon?: React.ReactNod
 // ];
 
 const Admin: React.FC = () => {
-    const {setUserName} = useStore()as any;
+    const {setUserName, setAvatar} = useStore()as any;
 
     const routesElement = useRoutes(routes)
 
@@ -88,6 +88,7 @@ const Admin: React.FC = () => {
         query_user_menu().then(res => {
 
             setUserName(res.data.name)
+            setAvatar(res.data.avatar)
             setMenuItem(tree(menuListTree(res.data.sys_menu), 0, "parent_id"))
         })
     }, []);
