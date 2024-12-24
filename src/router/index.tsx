@@ -1,18 +1,15 @@
 import {Navigate} from "react-router-dom"
-import User from "../pages/user";
-import Home from "../pages/home";
-import Role from "../pages/role";
-import Menu from "../pages/menu";
-import Bar from "../pages/charts/bar";
-import Line from "../pages/charts/line";
-import Pie from "../pages/charts/pie";
-import Log from "../pages/log/index";
-import Center from "../pages/account/center";
-import Setting from "../pages/account/settings";
-import Banner from "../pages/banner";
-import Types from "../pages/types";
-import Member from "../pages/member";
-import Title from "../pages/title";
+import Home from "../components/layout/home";
+import SystemIndex from "../pages/system/systemIndex.tsx";
+import SysUser from "../pages/system/User";
+import SysRole from "../pages/system/Role";
+import SysMenu from "../pages/system/Menu";
+import Log from "../pages/system/log";
+import Bar from "../pages/system/charts/bar.tsx";
+import Line from "../pages/system/charts/line.tsx";
+import Pie from "../pages/system/charts/pie.tsx";
+import Center from "../pages/system/account/center";
+import Setting from "../pages/system/account/settings";
 
 const routes = [
     {
@@ -20,56 +17,46 @@ const routes = [
         element: <Home/>
     },
     {
-        path: "/user",
-        element: <User/>
-    },
-    {
-        path: "/role",
-        element: <Role/>
-    },
-    {
-        path: "/menu",
-        element: <Menu/>
-    },
-    {
-        path: "/log",
-        element: <Log/>
-    },
-    {
-        path: "/bar",
-        element: <Bar/>
-    },
-    {
-        path: "/line",
-        element: <Line/>
-    },
-    {
-        path: "/pie",
-        element: <Pie/>
-    },
-    {
-        path: "/center",
-        element: <Center/>
-    },
-    {
-        path: "/setting",
-        element: <Setting/>
-    },
-    {
-        path: "/banner",
-        element: <Banner/>
-    },
-    {
-        path: "/types",
-        element: <Types/>
-    },
-    {
-        path: "/member",
-        element: <Member/>
-    },
-    {
-        path: "/title",
-        element: <Title/>
+        path: '/system',
+        element: <SystemIndex />,
+        children: [
+            {
+                path: '/system/user',
+                element: <SysUser />,
+            },
+            {
+                path: '/system/role',
+                element: <SysRole />,
+            },
+            {
+                path: '/system/menu',
+                element: <SysMenu />,
+            },
+            {
+                path: '/system/operateLog',
+                element: <Log />,
+            },
+            {
+                path: '/system/bar',
+                element: <Bar />,
+            },
+            {
+                path: '/system/line',
+                element: <Line />,
+            },
+            {
+                path: '/system/pie',
+                element: <Pie />,
+            },
+            {
+                path: '/system/center',
+                element: <Center />,
+            },
+            {
+                path: '/system/setting',
+                element: <Setting />,
+            },
+        ],
     },
     {
         path: "/",

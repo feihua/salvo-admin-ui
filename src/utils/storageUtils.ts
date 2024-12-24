@@ -18,7 +18,7 @@ export const storageUtils = {
         localStorage.setItem(USER_Name, userName)
     },
     getUserName(): string {
-        return localStorage.getItem(USER_Name) || 'koobe'
+        return localStorage.getItem(USER_Name) || '一个游客'
     },
 
     saveBtnMenu(btnMenu: string[]) {
